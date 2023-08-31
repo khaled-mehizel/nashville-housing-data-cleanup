@@ -22,4 +22,11 @@ Definitely not the most interesting dataset but it serves the purpose to show my
 
  # The actual cleaning
  Using MySQL Workbench, I've done the following:
- - 
+ - Standardized the date format using the str-to-date() function.
+ - Populated empty address records:
+    - Looking at the Parcel_ID, we notice that each parcel_id has an equivalent address, but appears multiple times with its own unique ID. So, to find the missing addresses, it's a matter of finding the addresses that are equivalent to their (missing addresses) parcel_IDs
+      - This can be done using a **self-join**. We join the table to itself through the parcel_ID, and we make sure the Unique_IDs are not equal. This enables us to have all the parcel_IDs and their equivalent addresses, bunched up coveniently next to the missing addresses.
+      - So, all the missing addresses will be facing the their parcel_ID's equivalent address, which is what should populate them.
+      - As for the population itself, we can simply use an **IFNULL()** function that fills the missing address with its parcel_ID's address.
+
+- Broke the Address column into three: Address, City, State
