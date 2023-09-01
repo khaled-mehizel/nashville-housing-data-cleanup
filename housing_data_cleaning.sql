@@ -103,14 +103,13 @@ SET SoldAsVacant = CASE
 -- Deleting duplicate records -------------------------------------------------------------------------------------------------------------------------------------
 -- this is a fail, but hey it's a an attempt
 WITH row_rankCTE as(
-	SELECT rank() OVER(
-					PARTITION BY ParcelID,
-								 PropertyAddress,
-                                 SalePrice,
-                                 SaleDate,
-                                 LegalReference
-                                 ORDER BY 
-									UniqueID)
+	SELECT rank() OVER(PARTITION BY ParcelID,
+					PropertyAddress,
+                                	SalePrice,
+                                	SaleDate,
+                                 	LegalReference
+                                 	ORDER BY 
+						UniqueID)
 					
 FROM housing_data)
 DELETE
