@@ -129,4 +129,7 @@ DROP COLUMN OwnerAddress;
 
 ALTER TABLE housing_data
 DROP COLUMN TaxDistrict;
+
+SELECT *
+FROM housing_data;
 	
