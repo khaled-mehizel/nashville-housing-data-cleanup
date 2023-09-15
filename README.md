@@ -46,7 +46,7 @@ Definitely not the most interesting dataset but it serves the purpose to show my
   - Unfortunately, this doesn't work in MySQL because it doesn't allow the user to delete records from CTEs :c works great in SQL Server though.
   - I tried adding a temporary column but you can't fill it with a window function. Eventually took it to Power Query and just removed the duplicates there.
 
-- Removing unneeded rows:
+- Removing unneeded columns:
   - Just used **DROP COLUMN** to delete the columns we split up previously and another one that seemed useless to me heh.
 
  
