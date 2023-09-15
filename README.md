@@ -2,7 +2,7 @@
  A comprehensive cleanup of a very dirty dataset, purely in SQL.
 
 # Overview
-The data consitutes homes and homeowners in Nashville, TN, and surrounding cities.
+The data constitutes homes and homeowners in Nashville, TN, and surrounding cities.
 
 Definitely not the most interesting dataset but it serves the purpose to show my SQL skills, hopefully.
 
@@ -13,7 +13,7 @@ Definitely not the most interesting dataset but it serves the purpose to show my
  - MySQL Workbench for cleaning the dataset, as well as exporting it into a nice and clean DB ready to be queried for analysis.
 
 # Preliminary look at the dataset and CSV export
-- Little look at the data using Excel to see what we're working with and what kind of data we have.
+- We have a little look at the data using Excel to see what we're working with and what kind of data we have.
 - Export into CSV through the built-in function.
 
 # Conversion of CSV file into SQL script and import
@@ -25,7 +25,7 @@ Definitely not the most interesting dataset but it serves the purpose to show my
  - Standardized the date format using the str-to-date() function.
  - Populated empty address records, we could've simply filled the rows with "no address" but I don't like cutting corners:
     - Looking at the Parcel_ID, we notice that each parcel_id has an equivalent address, but appears multiple times with its own unique ID. So, to find the missing addresses, it's a matter of finding the addresses that are equivalent to their (missing addresses) parcel_IDs
-      - This can be done using a **self-join**. We join the table to itself through the parcel_ID, and we make sure the Unique_IDs are not equal. This enables us to have all the parcel_IDs and their equivalent addresses, bunched up coveniently together, including the missing ones.
+      - This can be done using a **self-join**. We join the table to itself through the parcel_ID, and we make sure the Unique_IDs are not equal. This enables us to have all the parcel_IDs and their equivalent addresses, bunched up conveniently together, including the missing ones.
       - So, all the missing addresses will be facing the their parcel_ID's equivalent address, which is what should populate them.
       
       - As for the population itself, we can simply use an **IFNULL()** function that fills the missing address with its parcel_ID's address.
